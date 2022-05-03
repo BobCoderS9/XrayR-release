@@ -17,7 +17,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/BobCoderS9/XrayR-release/maste
 # Docker 安装
 
 ```
-docker pull crackair/xrayr:latest && docker run --restart=always --name xrayr -d -v ${PATH_TO_CONFIG}/config.yml:/etc/XrayR/config.yml --network=host crackair/xrayr:latest
+docker pull bobcoder/xrayr:latest && docker run --restart=always --name xrayr -d -v ${PATH_TO_CONFIG}/config.yml:/etc/XrayR/config.yml --network=host bobcoder/xrayr:latest
 ```
 
 # Docker compose 安装

@@ -179,6 +179,8 @@ install_XrayR() {
     chmod +x /usr/bin/XrayR
     ln -s /usr/bin/XrayR /usr/bin/xrayr # 小写兼容
     chmod +x /usr/bin/xrayr
+    curl -o /usr/bin/XrayR-tool -Ls https://raw.githubusercontent.com/BobCoderS9/XrayR-release/master/XrayR-tool
+    chmod +x /usr/bin/XrayR-tool
     echo -e ""
     echo "XrayR 管理脚本使用方法 (兼容使用xrayr执行，大小写不敏感): "
     echo "------------------------------------------"
@@ -193,6 +195,7 @@ install_XrayR() {
     echo "XrayR update             - 更新 XrayR"
     echo "XrayR update x.x.x       - 更新 XrayR 指定版本"
     echo "XrayR config             - 显示配置文件内容"
+    echo "XrayR config xx=xx yy=yy - 自动设置配置文件"
     echo "XrayR install            - 安装 XrayR"
     echo "XrayR uninstall          - 卸载 XrayR"
     echo "XrayR version            - 查看 XrayR 版本"

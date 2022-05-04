@@ -120,25 +120,11 @@ update() {
 }
 
 config() {
-    echo "XrayR在修改配置后会自动尝试重启"
-    vi /etc/XrayR/config.yml
-    sleep 2
-    check_status
-    case $? in
-        0)
-            echo -e "XrayR状态: ${green}已运行${plain}"
-            ;;
-        1)
-            echo -e "检测到您未启动XrayR或XrayR自动重启失败，是否查看日志？[Y/n]" && echo
-            read -e -p "(默认: y):" yn
-            [[ -z ${yn} ]] && yn="y"
-            if [[ ${yn} == [Yy] ]]; then
-               show_log
-            fi
-            ;;
-        2)
-            echo -e "XrayR状态: ${red}未安装${plain}"
-    esac
+  if [[ $# == 0 ]]; then
+        cat /etc/XrayR/config.yml
+    else
+        XrayR-tool $*
+    fi
 }
 
 uninstall() {
@@ -156,6 +142,7 @@ uninstall() {
     systemctl reset-failed
     rm /etc/XrayR/ -rf
     rm /usr/local/XrayR/ -rf
+    rm /usr/bin/XrayR-tool -rf
 
     echo ""
     echo -e "卸载成功，如果你想删除此脚本，则退出脚本后运行 ${green}rm /usr/bin/XrayR -f${plain} 进行删除"
